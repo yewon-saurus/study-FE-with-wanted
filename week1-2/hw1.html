@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>todo list</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        .flex {
+            display: flex;
+        }
+        .center {
+            justify-content: center;
+        }
+        .todo-list {
+
+        }
+        .todo-item {
+            border: 1px solid;
+            padding: 1em;
+            margin: 1em;;
+        }
+        .todo-item > button {
+            width: 177px;
+            margin: 8px 0 0 0;
+        }
+        .add-todo {
+            display: flex;
+            flex-direction: column;
+            margin: 2em;
+        }
+        .add-todo > button {
+            margin: 8px 0 0 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>~ 오늘의 할 일 ~</h1>
+    <div class="flex center">
+        <div class="todo-list">
+            <!-- <div class="todo-item">
+                <div></div>
+                <button>완료</button>
+            </div> -->
+        </div>
+
+        <div class="add-todo">
+            <input id="todoInput" type="text" />
+            <button onclick="handleAddClick()">추가</button>
+        </div>
+    </div>
+    <!-- script -->
+    <script>
+        function handleAddClick() {
+            // console.log(todoList);
+            let todoList = document.getElementsByClassName("todo-list")[0];
+            let todoInput = document.getElementById("todoInput");
+
+            if (todoInput.value === '') {
+                alert('내용을 입력해 주세요.');
+            }
+            else {
+                let todoItem = document.createElement('div');
+                todoItem.className = 'todo-item';
+
+                let todoContent = document.createElement('div');
+                todoContent.textContent = todoInput.value;
+
+                let buttonDone = document.createElement('button');
+                buttonDone.textContent = '완료';
+
+                // todo item
+                todoItem.appendChild(todoContent);
+                todoItem.appendChild(buttonDone);
+
+                todoList.appendChild(todoItem);
+                todoInput.value = ''; // 입력 창 비우기
+            }
+        }
+    </script>
+</body>
+</html>
