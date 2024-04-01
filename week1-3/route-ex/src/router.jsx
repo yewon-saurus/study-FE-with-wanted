@@ -1,22 +1,19 @@
-import React from 'react';
-import { createBrowserRouter } from 'react-router-dom';
-import Home from "./Home";
-import Cat from "./Cat";
-import Dog from "./Dog";
+import {Home, Dog, Cat} from "./Components";
+import {createBrowserRouter} from "react-router-dom";
 
 const router = createBrowserRouter([
-{
+  {
     path: "/",
     element: <Home />,
-},
-{
-    path: "/cat/:name",
+  },
+  {
+    path: "/cat",
     element: <Cat />,
-},
-{
-    path: "/dog",
+  },
+  {
+    path: "/dog/:dogName",
     element: <Dog />,
-},
+  },
 ]);
 
-  export default router;
+export default router;
