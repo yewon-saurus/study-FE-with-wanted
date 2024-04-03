@@ -17,11 +17,11 @@ const initialState = {
 const ADD = "cat/ADD"; // 이름이 cat/ADD인 액션 'ADD'
 // cat/ADD를 부르면, cat_arr에 "고양이"를 넣어주는 짓을 하게 하고 싶어요
 
-const addCat = () => {
+export const addCat = (cat_name) => {
     // 액션과 행위를 매치시켜주는 '액션 생성 함수'
     return {
         type: ADD,
-        cat: "고양이", // cat_arr에다가 추가할 값
+        cat: cat_name, // cat_arr에다가 추가할 값
     };
 }
 

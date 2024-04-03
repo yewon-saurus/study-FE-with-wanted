@@ -8,18 +8,29 @@ import { Cat, Dog, Home } from './Component';
 
 import { useSelector, useDispatch } from 'react-redux';
 
+import { addCat } from './redux/modules/cat';
+
 function App() {
   const [a, setA] = React.useState(0);
 
   // 어떤 함수가 들어가야 하냐면, state 중 뭐를 가져올 건지 정해주는 친구가 필요하다
   const myStoreData = useSelector((state) => state);
 
+  const dispatch = useDispatch(addCat);
+
   console.log(myStoreData);
 
   return (
     <div className="App">
       {a}
-      <button onClick={() => {setA(a + 1)}}>바뀌어라</button>
+      {/* <button onClick={() => {setA(a + 1)}}>바뀌어라</button> */}
+      <button onClick={() => {
+        dispatch(
+          {
+            type: "cat/ADD", cat: "고양이2"
+          }
+        );
+      }}>고양이</button>
 
       <Home a={a} setA={setA}  />
       <Cat a={a} />
