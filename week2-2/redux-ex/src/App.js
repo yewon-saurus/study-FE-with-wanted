@@ -22,7 +22,6 @@ function App() {
 
   return (
     <div className="App">
-      {a}
       {/* <button onClick={() => {setA(a + 1)}}>바뀌어라</button> */}
       <button onClick={() => {
         dispatch(

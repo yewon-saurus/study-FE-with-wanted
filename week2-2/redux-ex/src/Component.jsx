@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { addCat } from './redux/modules/cat';
+import { addDog } from './redux/slices/dog';
 
 // 고양이
 // 강아지
@@ -14,7 +15,6 @@ const Cat = (props) => {
 
     return (
         <div>
-            <h1>App이 줬어요: {props.a}</h1>
             <h1>고양이</h1>
             <div>
                 {
@@ -30,9 +30,20 @@ const Cat = (props) => {
 }
 
 const Dog = () => {
+    const myDogData = useSelector((state) => state.dog.dog_arr);
+
     return (
         <div>
             <h1>강아지</h1>
+            <div>
+                {
+                    myDogData.map((ele, idx) => 
+                        <div key={idx}>
+                            {ele}
+                        </div>
+                    )
+                }
+            </div>
         </div>
     );
 }
