@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { addCat } from './redux/modules/cat';
+
 // 고양이
 // 강아지
 // 홈
@@ -36,12 +38,19 @@ const Dog = () => {
 }
 
 const Home = (props) => {
+    const dispatch = useDispatch(addCat);
+
     return (
         <div>
             <h1>홈</h1>
             <button onClick={() => {
-                props.setA(props.a + 1)
-            }}>바뀌어라!!</button>
+                dispatch(
+                    // {
+                    //     type: "cat/ADD", cat: "야옹이"
+                    // }
+                    addCat("야옹이")
+                )
+            }}>야옹이</button>
         </div>
     );
 }
