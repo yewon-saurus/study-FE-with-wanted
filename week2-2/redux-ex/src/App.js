@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cat, Dog, Home } from './Component';
+import { Cat, Home } from './Component';
 
 // redux는 hook을 제공합니다
 // 데이터를 편하게 갖다 쓰고 편하게 변경 요청 보내라고 hook을 제공하는 건데요
@@ -8,7 +8,7 @@ import { Cat, Dog, Home } from './Component';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import { addCat } from './redux/modules/cat';
+import { addCat } from './redux/slices/cat';
 
 function App() {
   const [a, setA] = React.useState(0);
@@ -25,15 +25,12 @@ function App() {
       {/* <button onClick={() => {setA(a + 1)}}>바뀌어라</button> */}
       <button onClick={() => {
         dispatch(
-          {
-            type: "cat/ADD", cat: "고양이2"
-          }
+          addCat("고양이")
         );
       }}>고양이</button>
 
       <Home a={a} setA={setA}  />
       <Cat a={a} />
-      <Dog />
     </div>
   );
 }

@@ -1,8 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { addCat } from './redux/modules/cat';
-import { addDog } from './redux/slices/dog';
+import { addCat } from './redux/slices/cat';
 
 // 고양이
 // 강아지
@@ -19,25 +18,6 @@ const Cat = (props) => {
             <div>
                 {
                     myCatData.cat.cat_arr.map((ele, idx) => 
-                        <div key={idx}>
-                            {ele}
-                        </div>
-                    )
-                }
-            </div>
-        </div>
-    );
-}
-
-const Dog = () => {
-    const myDogData = useSelector((state) => state.dog.dog_arr);
-
-    return (
-        <div>
-            <h1>강아지</h1>
-            <div>
-                {
-                    myDogData.map((ele, idx) => 
                         <div key={idx}>
                             {ele}
                         </div>
@@ -66,4 +46,4 @@ const Home = (props) => {
     );
 }
 
-export { Cat, Dog, Home };
+export { Cat, Home };
