@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addBukkitItem } from "../redux/modules/bukkit";
 
 const formStyle = {
     width: "300px",
@@ -20,20 +22,19 @@ const buttonStyle = {
     width: "85px",
 }
 
-function BukkitForm({bukkitData, setBukkitData}) {
+function BukkitForm() {
     const [newBukkit, setNewBukkit] = useState('');
+    
+    const dispatch = useDispatch();
 
     function handleChangeInput(e) {
         setNewBukkit(e.target.value);
     }
 
     function handleButtonClick() {
-        setBukkitData([...bukkitData, {
-            "id": bukkitData[bukkitData.length - 1].id + 1,
-            "title": newBukkit,
-            "detail": "",
-            "done": false,
-        }])
+        dispatch(
+            addBukkitItem(newBukkit)
+        );
         setNewBukkit('');
     }
 
