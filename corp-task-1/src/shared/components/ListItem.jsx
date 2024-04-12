@@ -1,4 +1,7 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+
+import AdItem from "../../pages/list/AdItem";
 
 const ListItemDiv = styled.div`
 display: grid;
@@ -24,20 +27,26 @@ const ListItem = (props) => {
         + parseInt(props.created_at.slice(5, 7)) + '월 '
         + parseInt(props.created_at.slice(8, 10)) + '일';
 
+    if (props.index === 4) {
+        return <AdItem />
+    }
+
     return (
-        <ListItemDiv>
-            <div>
+        <Link to={'/detail/' + props.number} style={{textDecoration: "none"}} >
+            <ListItemDiv>
                 <div>
-                    {'#' + props.number + ' ' + props.title}
+                    <div>
+                        {'#' + props.number + ' ' + props.title}
+                    </div>
+                    <div className="text-sm">
+                        {'작성자: ' + props.user.login + ', 작성일: ' + created_at_date}
+                    </div>
                 </div>
-                <div className="text-sm">
-                    {'작성자: ' + props.user.login + ', 작성일: ' + created_at_date}
+                <div className="text-sm comments">
+                    {'코멘트: ' + props.comments}
                 </div>
-            </div>
-            <div className="text-sm comments">
-                {'코멘트: ' + props.comments}
-            </div>
-        </ListItemDiv>
+            </ListItemDiv>
+        </Link>
     );
 }
 
