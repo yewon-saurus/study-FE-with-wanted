@@ -15,10 +15,6 @@ img {
     margin: 0 0 0 1em;
     float: inline-start;
 }
-
-div {
-    width: 100%;
-}
 `;
 
 const Detail = () => {
