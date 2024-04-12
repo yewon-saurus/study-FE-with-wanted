@@ -7,21 +7,15 @@ const octokit = new Octokit({
 let OWNER = "angular";
 let REPO = "angular-cli";
 
-async function getIssuesRequest() {
+async function getIssuesRequest(page) {
     let response = null;
 
-    response = await octokit.request("GET /repos/{owner}/{repo}/issues?sort={sort}&per_page={per_page}", {
+    response = await octokit.request("GET /repos/{owner}/{repo}/issues?sort={sort}&page={page}", {
         owner: OWNER,
         repo: REPO,
         sort: "comments",
-        per_page: 19,
+        page: page,
     });
-
-    return response;
-}
-
-async function moreIssuesRequest() {
-    let response = null;
 
     return response;
 }
@@ -38,4 +32,4 @@ async function getAnIssue(issueNumber) {
     return response;
 }
 
-export { getIssuesRequest, moreIssuesRequest, getAnIssue };
+export { getIssuesRequest, getAnIssue };

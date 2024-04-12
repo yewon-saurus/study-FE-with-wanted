@@ -4,7 +4,7 @@ import router from "./router";
 import styled from "styled-components";
 
 import Header from "./shared/components/Header";
-import { getIssuesRequest, moreIssuesRequest } from "./shared/network/githubRequest";
+import { getIssuesRequest } from "./shared/network/githubRequest";
 
 export const IssueStore = React.createContext();
 
@@ -20,20 +20,11 @@ border: 1px solid;
 `;
 
 function App() {
-  const [issues, setIssues] = React.useState([
-    {
-      "number": "",
-        "title": "",
-        "user": {
-            "login": "",
-        },
-        "comments": "",
-        "created_at": "",
-    }
-  ]);
+  const [issues, setIssues] = React.useState([]);
+  const [currentPage, setCurrentPage] = React.useState(0);
 
   useEffect(() => {
-    getIssuesRequest().then(response => {
+    getIssuesRequest(currentPage).then(response => {
       setIssues(response.data);
     });
   }, []);
@@ -42,7 +33,7 @@ function App() {
     <div className="App">
       <Width640pxDiv>
         <Header />
-        <IssueStore.Provider value={{issues, setIssues}}>
+        <IssueStore.Provider value={{issues, setIssues, currentPage, setCurrentPage}}>
           <RouterProvider router={router}></RouterProvider>
         </IssueStore.Provider>
       </Width640pxDiv>
