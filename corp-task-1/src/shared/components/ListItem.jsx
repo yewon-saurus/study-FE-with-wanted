@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 const ListItemDiv = styled.div`
 display: grid;
@@ -19,21 +18,19 @@ const ListItem = (props) => {
         + parseInt(props.created_at.slice(8, 10)) + '일';
 
     return (
-        <Link to={'/detail/' + props.number}>
-            <ListItemDiv>
+        <ListItemDiv>
+            <div>
                 <div>
-                    <div>
-                        {'#' + props.number + ' ' + props.title}
-                    </div>
-                    <div className="text-sm">
-                        {'작성자: ' + props.user.login + ', 작성일: ' + created_at_date}
-                    </div>
+                    {'#' + props.number + ' ' + props.title}
                 </div>
                 <div className="text-sm">
-                    {'코멘트: ' + props.comments}
+                    {'작성자: ' + props.user.login + ', 작성일: ' + created_at_date}
                 </div>
-            </ListItemDiv>
-        </Link>
+            </div>
+            <div className="text-sm">
+                {'코멘트: ' + props.comments}
+            </div>
+        </ListItemDiv>
     );
 }
 
