@@ -8,11 +8,16 @@ import ListItem from "../shared/components/ListItem";
 
 const IssueTitleDiv = styled.div`
 display: flex;
+align-items: center;
 
 img {
     height: 50px;
-    margin: 1em 0 1em 1em;
-    padding: 1em 0 1em 1em;
+    margin: 0 0 0 1em;
+    float: inline-start;
+}
+
+div {
+    width: 100%;
 }
 `;
 

@@ -2,13 +2,20 @@ import styled from "styled-components";
 
 const ListItemDiv = styled.div`
 display: grid;
-grid-template-columns: 7fr 1fr;
+grid-template-columns: 10fr 2fr;
 border-bottom: 2px solid #dddddd;
-margin: 1em;
+margin: 0 1em;
 padding: 1em;
+width: auto;
 
 .text-sm {
     font-size: 0.75em;
+}
+
+.comments {
+    display: flex;
+    justify-content: end;
+    align-items: center;
 }
 `;
 
@@ -27,7 +34,7 @@ const ListItem = (props) => {
                     {'작성자: ' + props.user.login + ', 작성일: ' + created_at_date}
                 </div>
             </div>
-            <div className="text-sm">
+            <div className="text-sm comments">
                 {'코멘트: ' + props.comments}
             </div>
         </ListItemDiv>
