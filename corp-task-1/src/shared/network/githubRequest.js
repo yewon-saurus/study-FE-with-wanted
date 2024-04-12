@@ -14,7 +14,7 @@ async function getIssuesRequest() {
         owner: OWNER,
         repo: REPO,
         sort: "comments",
-        per_page: 10,
+        per_page: 20,
     });
 
     return response;
