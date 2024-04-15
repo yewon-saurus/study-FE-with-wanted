@@ -14,10 +14,8 @@ const List = () => {
         const nextPage = currentPage + 1;
         if (target.isIntersecting) {
             getIssuesRequest(nextPage).then(response => {
-                if ([...issues, ...response.data] != issues) {
-                    setIssues([...issues, ...response.data]);
-                    setCurrentPage(nextPage);
-                }
+                setIssues([...issues, ...response.data]);
+                setCurrentPage(nextPage);
             });
         }
     }
@@ -28,6 +26,9 @@ const List = () => {
         });
 
         if (detectBottomTarget.current) {
+            // 해당 ref가 현재 유효한 DOM 요소를 가리키는지 확인!
+            // (유효하지 않은 요소에 접근하려고 시도하는 것을 방지)
+            // 안 해도 잘 실행되긴 하던데, 이렇게 확인해 주는 것이 좋은 습관이라고 합니다
             observer.observe(detectBottomTarget.current);
         }
 
