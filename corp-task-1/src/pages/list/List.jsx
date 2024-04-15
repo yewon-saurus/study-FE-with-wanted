@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 import ListItem from "../../shared/components/ListItem";
-import { IssueStore } from "../../App";
+import IssueStore from "../../shared/store/store";
 import { getIssuesRequest } from "../../shared/network/githubRequest";
 
 const List = () => {

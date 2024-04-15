@@ -4,9 +4,8 @@ import router from "./router";
 import styled from "styled-components";
 
 import Header from "./shared/components/Header";
+import IssueStore from "./shared/store/store";
 import { getIssuesRequest } from "./shared/network/githubRequest";
-
-export const IssueStore = React.createContext();
 
 const Width640pxDiv = styled.div`
 width: 640px;
