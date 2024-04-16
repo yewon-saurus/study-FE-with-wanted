@@ -1,4 +1,20 @@
-# Getting Started with Create React App
+# React 과제 1차
+
+## 📱 실행 화면
+
+1. 목록 화면
+
+    ![screen_list_page](./README/1.JPG)
+
+    -  무한 스크롤
+
+        ![screen_infinite_scroll](./README/3.gif)
+
+2. 상세 화면
+
+    ![screen_detail_page](./README/2.JPG)
+
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -67,4 +83,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
